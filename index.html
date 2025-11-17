@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdallah Waleed | Links</title>
+  <style>
+    :root {
+      --primary: #0077b5;
+      --primary-dark: #005f8d;
+      --bg-gradient: linear-gradient(135deg, #0f172a, #020617, #0b1120);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-gradient);
+      color: #e5e7eb;
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    /* Background glowing circles */
+    .bg-orbit {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(45px);
+      opacity: 0.55;
+      animation: float 18s ease-in-out infinite alternate;
+    }
+
+    .circle.blue {
+      background: #1d4ed8;
+      width: 280px;
+      height: 280px;
+      top: -60px;
+      left: -40px;
+    }
+
+    .circle.cyan {
+      background: #06b6d4;
+      width: 260px;
+      height: 260px;
+      bottom: -80px;
+      right: -60px;
+      animation-delay: 4s;
+    }
+
+    .circle.purple {
+      background: #7c3aed;
+      width: 220px;
+      height: 220px;
+      bottom: 40%;
+      left: 60%;
+      animation-delay: 8s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      100% {
+        transform: translate3d(30px, -25px, 0) scale(1.15);
+      }
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: 24px;
+      padding: 28px 22px 24px;
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(148, 163, 184, 0.1);
+      backdrop-filter: blur(18px);
+      position: relative;
+      overflow: hidden;
+      animation: card-in 0.9s ease-out forwards;
+      transform-origin: center bottom;
+    }
+
+    @keyframes card-in {
+      from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .accent-pill {
+      position: absolute;
+      inset-inline: 24px;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #38bdf8, #6366f1, transparent);
+      opacity: 0.9;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 22px;
+      animation: fade-up 0.7s ease-out 0.1s both;
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 118, 230, 0.12);
+      color: #bfdbfe;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      margin-bottom: 10px;
+    }
+
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+      letter-spacing: 0.03em;
+    }
+
+    .role {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .role span {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      animation: fade-up 0.7s ease-out 0.2s both;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.16), rgba(15, 23, 42, 0.98));
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition:
+        transform 0.18s ease-out,
+        box-shadow 0.18s ease-out,
+        border-color 0.18s ease-out,
+        background 0.18s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .link-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .link-label {
+      text-align: left;
+    }
+
+    .link-title {
+      display: block;
+      font-size: 0.92rem;
+    }
+
+    .link-sub {
+      display: block;
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .link-arrow {
+      font-size: 1.05rem;
+      opacity: 0.8;
+    }
+
+    .link-btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.14), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px) translateZ(0) scale(1.01);
+      box-shadow:
+        0 18px 35px rgba(15, 23, 42, 0.85),
+        0 0 0 1px rgba(148, 163, 184, 0.4);
+      border-color: rgba(59, 130, 246, 0.85);
+    }
+
+    .link-btn:hover::after {
+      opacity: 1;
+    }
+
+    .link-btn:active {
+      transform: translateY(0) scale(0.99);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.8);
+    }
+
+    .link-btn.linkedin {
+      border-color: rgba(59, 130, 246, 0.8);
+      background: linear-gradient(
+        135deg,
+        rgba(37, 99, 235, 0.75),
+        rgba(59, 130, 246, 0.95),
+        rgba(56, 189, 248, 0.85)
+      );
+    }
+
+    .link-btn.linkedin .link-sub {
+      color: #e5e7eb;
+    }
+
+    .link-btn.portfolio {
+      border-color: rgba(139, 92, 246, 0.9);
+      background: linear-gradient(
+        135deg,
+        rgba(30, 64, 175, 0.9),
+        rgba(139, 92, 246, 0.95),
+        rgba(14, 165, 233, 0.9)
+      );
+    }
+
+    .link-btn.portfolio .link-sub {
+      color: #e5e7eb;
+    }
+
+    .link-btn.cv {
+      border-style: dashed;
+    }
+
+    .footer {
+      margin-top: 18px;
+      font-size: 0.75rem;
+      color: #6b7280;
+      text-align: center;
+      animation: fade-up 0.7s ease-out 0.3s both;
+    }
+
+    .footer span {
+      color: #9ca3af;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 22px 18px 20px;
+        border-radius: 20px;
+      }
+
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      .links {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orbit" aria-hidden="true">
+    <div class="circle blue"></div>
+    <div class="circle cyan"></div>
+    <div class="circle purple"></div>
+  </div>
+
+  <main class="card">
+    <div class="accent-pill"></div>
+
+    <header class="header">
+      <div class="chip">
+        <span class="chip-dot"></span>
+        Open to internships & projects
+      </div>
+      <h1>Abdallah Waleed Kamal Mousa Salem</h1>
+      <p class="role">
+        IoT & AI Student · <span>IoT Applications Developer</span>
+      </p>
+    </header>
+
+    <section class="links" aria-label="Primary links">
+      <!-- LinkedIn -->
+      <a
+        class="link-btn linkedin"
+        href="https://www.linkedin.com/in/abdallah-waleed-885089293"
+        target="_blank"
+        rel="noopener"
+      >
+        <div class="link-main">
+          <div class="link-icon">in</div>
+          <div class="link-label">
+            <span class="link-title">Visit my LinkedIn</span>
+            <span class="link-sub">Professional profile & activity</span>
+          </div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+
+      <!-- Portfolio -->
+      <a
+        class="link-btn portfolio"
+        href="https://abdallahwaleed-portfolio.netlify.app/"
+        target="_blank"
+        rel="noopener"
+      >
+        <div class="link-main">
+          <div class="link-icon">💻</div>
+          <div class="link-label">
+            <span class="link-title">View my Portfolio</span>
+            <span class="link-sub">Projects, skills & case studies</span>
+          </div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+
+      <!-- CV PDF -->
+      <a
+        class="link-btn cv"
+        href="./AbdallahWaleed_Cv.pdf"
+        download
+        target="_blank"
+        rel="noopener"
+      >
+        <div class="link-main">
+          <div class="link-icon">📄</div>
+          <div class="link-label">
+            <span class="link-title">Download my CV</span>
+            <span class="link-sub">PDF · Up-to-date résumé</span>
+          </div>
+        </div>
+        <div class="link-arrow">⬇</div>
+      </a>
+    </section>
+
+    <p class="footer">
+      <span>Menoufia, Egypt ·</span> Internet of Things & Big Data Analytics
+    </p>
+  </main>
+</body>
+</html>
